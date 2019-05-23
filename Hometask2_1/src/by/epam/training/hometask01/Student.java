@@ -2,8 +2,6 @@ package by.epam.training.hometask01;
 
 import by.epam.training.hometask01.Date;
 
-//Student: id, Фамилия, Имя, Отчество, Дата рождения, Адрес, Телефон, Факультет, Курс.
-
 public class Student {
 
 	private int StId;
