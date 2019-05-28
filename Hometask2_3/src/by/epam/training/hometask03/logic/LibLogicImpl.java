@@ -48,7 +48,11 @@ public class LibLogicImpl implements LibLogic {
 		List<Book> results = new ArrayList<Book>();
 		
 		for (int i = 0; i<results.size(); i++) {
-		//	System.out.println(lib.getbooks());
+		Book b = results.get(i);
+		System.out.println(b);
+		if(author.equals(b.getAuthor())){
+			results.add(b);
+		}
 		}
 		
 		
@@ -69,6 +73,10 @@ public class LibLogicImpl implements LibLogic {
 
 		Library lib = libDAO.create();
 		List<Book> allbooks = new ArrayList<Book>();
+		for (int i = 0; i<allbooks.size(); i++) {
+			Book bb = allbooks.get(i);
+			System.out.println(bb);
+		}
 		
 		return allbooks;
 	}
