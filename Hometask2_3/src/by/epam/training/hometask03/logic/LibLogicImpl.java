@@ -21,8 +21,7 @@ public class LibLogicImpl implements LibLogic {
 	public void add(Book book) throws FileNotFoundException {
 
 		DAOProvider factory = DAOProvider.getInstance();
-		LibCreatorDAO libDAO = factory.getLibCreatorDAO(); // интерфейс getLibCreatorDAO ссылается на объект new
-															// FileLibCreatorDAO()
+		LibCreatorDAO libDAO = factory.getLibCreatorDAO(); 
 
 		Library lib = libDAO.create();
 		lib.add(book);
@@ -52,8 +51,7 @@ public class LibLogicImpl implements LibLogic {
 		//	System.out.println(lib.getbooks());
 		}
 		
-		// пишем код, который перебирает все книги из библиотеки с помощью цикла и
-		// сортирует их по автору equals автор, если да, то в новую коллекцию
+		
 
 		if (type == Book.SortType.BY_PRICE) {
 			Collections.sort(results, new BookByPriceComparator());
@@ -64,6 +62,15 @@ public class LibLogicImpl implements LibLogic {
 		return results;
 	}
 
-	
+	@Override
+	public List<Book> findall() throws FileNotFoundException {
+		DAOProvider factory = DAOProvider.getInstance();
+		LibCreatorDAO libDAO = factory.getLibCreatorDAO();
+
+		Library lib = libDAO.create();
+		List<Book> allbooks = new ArrayList<Book>();
+		
+		return allbooks;
+	}
 
 }
