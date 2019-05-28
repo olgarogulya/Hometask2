@@ -24,7 +24,7 @@ public class Main {
 		 logic.add(newbook2);
 		 logic.add(newbook3);
 		 logic.findall();
-		print(allbooks);
+		print(logic.findall());
 		 //logic.find(author, type);
 		 logic.remove(newbook2);
 		// vernut vse knigi
