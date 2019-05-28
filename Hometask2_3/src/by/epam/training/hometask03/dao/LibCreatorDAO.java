@@ -2,7 +2,7 @@ package by.epam.training.hometask03.dao;
 
 import java.io.FileNotFoundException;
 
-import by.cdp.library.entity.Library;
+import by.epam.training.entity.Library;
 
 public interface LibCreatorDAO {
 
