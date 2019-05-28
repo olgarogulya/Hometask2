@@ -11,4 +11,5 @@ public interface LibLogic {
 	void add(Book book) throws FileNotFoundException;
 	void remove(Book book) throws FileNotFoundException;
 	List<Book> find(String author, SortType type) throws FileNotFoundException;
+	List<Book> findall() throws FileNotFoundException;
 }
