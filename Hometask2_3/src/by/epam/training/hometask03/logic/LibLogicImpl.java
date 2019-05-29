@@ -83,4 +83,18 @@ public class LibLogicImpl implements LibLogic {
 		//System.out.println("allbooks " + allbooks);
 		return allbooks;
 	}
+	@Override
+	public List<Book> save() throws IOException {
+		DAOProvider factory = DAOProvider.getInstance();
+		LibCreatorDAO libDAO = factory.getLibCreatorDAO();
+
+		Library lib = libDAO.create();
+		List<Book> allbooks = new ArrayList<Book>();
+		/*for (int i = 0; i<allbooks.size(); i++) {
+			Book bb = allbooks.get(i);
+			//System.out.println("bb " + bb);
+		}*/
+		//System.out.println("allbooks " + allbooks);
+		return allbooks;
+	}
 }
