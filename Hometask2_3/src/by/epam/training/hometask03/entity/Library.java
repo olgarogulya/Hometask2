@@ -23,6 +23,10 @@ public class Library {
 	public List<Book> findall(){
 		return books;
 	}
+	
+	public List<Book> save(){
+		return books;
+	}
 
 	@Override
 	public int hashCode() {
