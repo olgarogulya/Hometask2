@@ -13,30 +13,34 @@ import by.epam.training.hometask03.logic.LibLogicImpl;
 
 public class Main {
 
-	public static void main(String[] args) throws FileNotFoundException {
+	public static void main(String[] args) throws IOException {
 		LibLogic logic = new LibLogicImpl();
 		Book newbook1 = new Book("NewBook1", "NewAuthor1", 999, 2020);
 		Book newbook2 = new Book("NewBook2", "NewAuthor2", 888, 2019);
 		Book newbook3 = new Book("NewBook3", "NewAuthor3", 777, 2018);
-		
+		print(logic.findall());
 		//System.out.println(logic);
 		 logic.add(newbook1);
 		 logic.add(newbook2);
 		 logic.add(newbook3);
 		 logic.findall();
-		print(logic.findall());
-		 //logic.find(author, type);
+		 
+		 logic.find("Ekkel", SortType.BY_PRICE);
 		 logic.remove(newbook2);
-		// vernut vse knigi
+		
 	
 	//System.out.println("lib " + logic);
 	}
 
 	public static void print(List<Book> books) {
 
-	//for (int i = 0; i < books.size(); i++) {
-	for(Book book : books) {	
-		System.out.println(book.getTitle());
-		}
+		
+		System.out.println(Arrays.toString(books.toArray()));
+	/*for (int i = 0; i < books.size(); i++) {
+		System.out.println(books.get(i).getAuthor());
+	}*/
+/*	for(Book book : books) {	
+		System.out.println(book.getTitle() + " " + book.getAuthor() + " " + book.getPrice() + " " + book.getYearPublished());
+		}*/
 	}
 }
