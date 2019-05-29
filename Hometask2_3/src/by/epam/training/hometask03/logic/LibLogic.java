@@ -13,4 +13,5 @@ public interface LibLogic {
 	void remove(Book book) throws FileNotFoundException, IOException;
 	List<Book> find(String author, SortType type) throws FileNotFoundException, IOException;
 	List<Book> findall() throws FileNotFoundException, IOException;
+	List<Book> save() throws FileNotFoundException, IOException;
 }
