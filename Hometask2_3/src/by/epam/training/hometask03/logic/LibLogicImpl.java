@@ -1,6 +1,7 @@
 package by.epam.training.hometask03.logic;
 
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -18,10 +19,11 @@ import by.epam.training.hometask03.entity.Library;;
 public class LibLogicImpl implements LibLogic {
 
 	@Override
-	public void add(Book book) throws FileNotFoundException {
+	public void add(Book book) throws IOException {
 
 		DAOProvider factory = DAOProvider.getInstance();
-		LibCreatorDAO libDAO = factory.getLibCreatorDAO(); 
+		LibCreatorDAO libDAO = factory.getLibCreatorDAO(); // интерфейс getLibCreatorDAO ссылается на объект new
+															// FileLibCreatorDAO()
 
 		Library lib = libDAO.create();
 		lib.add(book);
@@ -30,7 +32,7 @@ public class LibLogicImpl implements LibLogic {
 	}
 
 	@Override
-	public void remove(Book book) throws FileNotFoundException {
+	public void remove(Book book) throws IOException {
 		DAOProvider factory = DAOProvider.getInstance();
 		LibCreatorDAO libDAO = factory.getLibCreatorDAO();
 		Library lib = libDAO.create();
@@ -40,7 +42,7 @@ public class LibLogicImpl implements LibLogic {
 	}
 
 	@Override
-	public List<Book> find(String author, SortType type) throws FileNotFoundException {
+	public List<Book> find(String author, SortType type) throws IOException {
 		DAOProvider factory = DAOProvider.getInstance();
 		LibCreatorDAO libDAO = factory.getLibCreatorDAO();
 
@@ -49,13 +51,14 @@ public class LibLogicImpl implements LibLogic {
 		
 		for (int i = 0; i<results.size(); i++) {
 		Book b = results.get(i);
-		System.out.println(b);
+		//System.out.println(b);
 		if(author.equals(b.getAuthor())){
 			results.add(b);
 		}
 		}
 		
-		
+		// пишем код, который перебирает все книги из библиотеки с помощью цикла и
+		// сортирует их по автору equals автор, если да, то в новую коллекцию
 
 		if (type == Book.SortType.BY_PRICE) {
 			Collections.sort(results, new BookByPriceComparator());
@@ -67,18 +70,17 @@ public class LibLogicImpl implements LibLogic {
 	}
 
 	@Override
-	public List<Book> findall() throws FileNotFoundException {
+	public List<Book> findall() throws IOException {
 		DAOProvider factory = DAOProvider.getInstance();
 		LibCreatorDAO libDAO = factory.getLibCreatorDAO();
 
 		Library lib = libDAO.create();
 		List<Book> allbooks = new ArrayList<Book>();
-		for (int i = 0; i<allbooks.size(); i++) {
+		/*for (int i = 0; i<allbooks.size(); i++) {
 			Book bb = allbooks.get(i);
-			System.out.println(bb);
-		}
-		
+			//System.out.println("bb " + bb);
+		}*/
+		//System.out.println("allbooks " + allbooks);
 		return allbooks;
 	}
-
 }
