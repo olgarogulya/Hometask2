@@ -41,7 +41,7 @@ public class FileLibCreatorDAO implements LibCreatorDAO {
 
 			Book book = new Book(title, author, price, yearPublished);
 			lib.add(book);
-			
+			lib.save();
 		}
 //System.out.println(lib);
 		return lib;
