@@ -19,6 +19,10 @@ public class Library {
 	public void remove(Book book) {
 		books.remove(book);
 	}
+	
+	public List<Book> findall(){
+		return books;
+	}
 
 	@Override
 	public int hashCode() {
